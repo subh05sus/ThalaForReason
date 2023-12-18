@@ -34,3 +34,31 @@ async function generateContent() {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+
+
+
+// index.js
+async function shareOnTwitter() {
+  const resultContainer = document.getElementById('resultContainer');
+
+  try {
+    const canvas = await html2canvas(resultContainer);
+
+    // Convert canvas data to data URI
+    const dataURL = canvas.toDataURL();
+
+    // Encode data URI for Twitter
+    const encodedData = encodeURIComponent(dataURL);
+
+    // Set up Twitter sharing link
+    const tweetText = encodeURIComponent("Check if you're a Thala! 🕵️");
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodedData}`;
+
+    // Open Twitter sharing window
+    window.open(tweetUrl, '_blank');
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error sharing on Twitter');
+  }
+}
