@@ -38,20 +38,23 @@ app.post("/userdata", async (req, res) => {
       #KINDLY RECHECK AND VERIFY IF THE LOGIC IS CORRECT OR NOT(ATLEAST THE MATHEMATICAL LOGICS)\
       ## DON'T GENERATE MORE THAN 1 SENTENCE\n HERE IS MY WORD: " + question;
 
-      const result = await model.generateContentStream(prompt);
-      const response = await result.response;
-    //   const text = response.text();
+      try {
+        const result = await model.generateContentStream(prompt);
+        const response = await result.response;
+        //   const text = response.text();
 
-      let text = "";
-      for await (const chunk of result.stream) {
-        const chunkText = chunk.text();
-        text += chunkText;
+        let text = "";
+        for await (const chunk of result.stream) {
+          const chunkText = chunk.text();
+          text += chunkText;
+        }
+        console.log(reqCount, question, ":", text);
+        reqCount += 1;
+
+        res.send(text);
+      } catch (e) {
+        res.send("No Hate Speech Please");
       }
-
-
-      res.send(text);
-      reqCount += 1;
-      console.log(reqCount, question, ":", text);
     }
 
     main(question);

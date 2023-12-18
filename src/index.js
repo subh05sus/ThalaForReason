@@ -12,17 +12,18 @@ async function generateContent() {
       body: JSON.stringify({ query }),
     });
 
-    const result = await response.text();
+      const result = await response.text();
+  
+      // Clear existing content
+      responseContainer.textContent = '';
+  
+      // Simulate typing animation
+      for (let i = 0; i < result.length; i++) {
+        await sleep(30); // Adjust the typing speed (milliseconds)
+        responseContainer.textContent += result[i];
+      }
+      audio.play();
 
-    // Clear existing content
-    responseContainer.textContent = '';
-
-    // Simulate typing animation
-    for (let i = 0; i < result.length; i++) {
-      await sleep(30); // Adjust the typing speed (milliseconds)
-      responseContainer.textContent += result[i];
-    }
-    audio.play();
 
   } catch (error) {
     console.error('Error:', error);
