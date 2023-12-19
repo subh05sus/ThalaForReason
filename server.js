@@ -29,13 +29,13 @@ app.post("/userdata", async (req, res) => {
       const prompt =
         "# I am gonna give you a word or sentence or prompt, somehow establish a connection with the number 7.\
       # For Example: \
-      2023 = 2+2+3 =7, Spandan = 7 letters, \
+      2023 = 2+2+3 =7,\
       Gaurav = 1st letter G = 7th letter, \
       Sunset has 6 letters + 1 word = 7,\
       Rohit: The sum of the numerical positions of the letters (R=18, O=15, H=8, I=9, T=20) is 70, and 7 + 0 = 7, \
       Had break up with Girlfriend: You had break up with your gf because your luck was on 7th planet\
       #GENERATE WITH ANY ONE OF TRICK FROM THE ABOVE, SOMETIMES ROAST IN THE RESPONSE\
-      #KINDLY RECHECK AND VERIFY IF THE LOGIC IS CORRECT OR NOT(ATLEAST THE MATHEMATICAL LOGICS)\
+      #KINDLY RECHECK AND VERIFY IF THE LOGIC IS CORRECT OR NOT\
       ## DON'T GENERATE MORE THAN 1 SENTENCE\n HERE IS MY WORD: " + question;
 
       try {

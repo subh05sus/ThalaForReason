@@ -8,26 +8,55 @@
   <link rel="stylesheet" href="styles.css">
   <script src="index.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
+
 
 </head>
 <body>
-  <div class="main">
+  <div class="main" id="main">
 
-    <div class="main-container">
+    <div class="main-container" id="main-container">
       <h1>Check If you are a Thala ?👀</h1>
       <form id="userForm">
-        <input type="text" id="query" name="query" placeholder="Enter... for example: 'Mohit'" required>
-        <button type="button" onclick="generateContent()">Submit</button>
+        <input type="text" id="query" name="query" placeholder="Enter... for example: 'Subinoy'" required>
+        <button type="button" onclick="generateContent()" class="checkButton">Check</button>
       </form>
+      <div id="loadingAnimation"></div>
+
       <div id="resultContainer">
         <p id="resultText"></p>
       </div>
     <div class="thala">
       <p class="tfr">#ThalaForReason</p>
     </div>
-    <button type="button" onclick="shareOnTwitter()">Share on Twitter</button>
+    <div class="share">
+
+      <button type="button" class="shareButton" onclick="shareOnWhatsApp()">
+        <img src="whatsapp.svg" alt="WhatsApp Icon" id="shareIcon">
+      </button>
+      <button type="button" class="shareButton" onclick="shareOnTwitter()">
+        <img src="x-social-media-round-icon.svg" alt="WhatsApp Icon" id="shareIcon">
+      </button>
+      <button type="button" class="shareButton" onclick="shareOnOthers()">
+        <img src="share-svgrepo-com.svg" alt="WhatsApp Icon" id="shareIcon">
+      </button>
+    </div>
   </div>
   <audio id="audio" src="boleJoKoyal.mp3"></audio>
+</div>
+<div id="foot">
+  
+  <center>
+
+    Developed by <a href="https://linktr.ee/subhadipsaha"><b id="subh">Subhadip Saha</b></a>
+    <br>
+    <div id="social">
+      <a href="https://www.linkedin.com/in/subhadipsahaofficial/">LinkedIn</a> | <a href="https://www.github.com/subh05sus">GitHub</a>
+    </div>
+    <br>
+  </center>
+
+  
 </div>
   
 </body>
