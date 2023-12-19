@@ -9,10 +9,13 @@
   <script src="index.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 
 
 </head>
 <body>
+  <div class="toastify"></div>
   <div class="main" id="main">
 
     <div class="main-container" id="main-container">
@@ -29,23 +32,30 @@
     <div class="thala">
       <p class="tfr">#ThalaForReason</p>
     </div>
-    <div class="share">
-
-      <button type="button" class="shareButton" onclick="shareOnWhatsApp()">
-        <img src="whatsapp.svg" alt="WhatsApp Icon" id="shareIcon">
-      </button>
-      <button type="button" class="shareButton" onclick="shareOnTwitter()">
-        <img src="x-social-media-round-icon.svg" alt="WhatsApp Icon" id="shareIcon">
-      </button>
-      <button type="button" class="shareButton" onclick="shareOnOthers()">
-        <img src="share-svgrepo-com.svg" alt="WhatsApp Icon" id="shareIcon">
-      </button>
+    <div class="lower">
+      <div class="share">
+        
+        <button type="button" class="shareButton" onclick="shareOnWhatsApp()">
+          <img src="whatsapp.svg" alt="WhatsApp Icon" id="shareIcon">
+        </button>
+        <button type="button" class="shareButton" onclick="shareOnTwitter()">
+          <img src="x-social-media-round-icon.svg" alt="WhatsApp Icon" id="shareIcon">
+        </button>
+        <button type="button" class="shareButton" onclick="shareOnOthers()">
+          <img src="share-svgrepo-com.svg" alt="WhatsApp Icon" id="shareIcon">
+        </button>
+      </div>
+      <div class="clip">
+        <button type="button" class="shareButton" onclick="copyToClipboard()">
+          <img src="clipboard.svg" alt="Clipboard Icon" id="clipIcon" height="1rem">
+        </button>
+      </div>
     </div>
   </div>
   <audio id="audio" src="boleJoKoyal.mp3"></audio>
 </div>
+
 <div id="foot">
-  
   <center>
 
     &copy; 2023 <a href="https://linktr.ee/subhadipsaha"><b id="subh">Subhadip Saha</b></a>. All rights reserved.
@@ -55,9 +65,17 @@
     </div>
     <br>
   </center>
-
-  
 </div>
-  
+<div class="toast hiddenToast" id="toast">
+  <div class="linkCopied">
+    <p>
+      Link Copied To Clipboard
+    </p>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </body>
 </html>

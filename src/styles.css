@@ -1,115 +1,125 @@
 /* src/styles.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Figtree&family=Rubik+Doodle+Shadow&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Figtree&family=Rubik+Doodle+Shadow&display=swap");
 
 body {
-    margin: 0;
-    padding: 0;
-    background: url('bg.svg') center/750% no-repeat; /* Replace 'your-background-image-url.jpg' with the actual URL */
-    font-family: 'Figtree', sans-serif;
-    height: 100%;
-    width: 100%;
-    overflow: hidden; /* Prevent scrollbars caused by background image */
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    position: absolute;
-    transition: all 0.3s ease-in;
-    flex-direction: column;
-  }
-  .main{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-  }
-  
-  .main-container {
-    position: relative;
-    margin: 20vh auto;
-    max-width: 500px;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.221); /* Background color with transparency */
-    border-radius: 12px;
-    padding: 20px;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.131);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #fff;
-  }
-  
-  #userForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input {
-    width: 80%;
-    margin-bottom: 10px;
-    padding: 8px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.7); /* Input background color with transparency */
-    height: 20px;
-  }
-  
-  button {
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #3498db; /* Button background color */
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  button:hover {
-    background: #2980b9; /* Button background color on hover */
-  }
+  margin: 0;
+  padding: 0;
+  background: url("bg.svg") center/750% no-repeat; /* Replace 'your-background-image-url.jpg' with the actual URL */
+  font-family: "Figtree", sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrollbars caused by background image */
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  transition: all 0.3s ease-in;
+  flex-direction: column;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
 
-  
-  #resultContainer {
-    margin-top: 20px;
-    text-align: center;
-    color: #fff;
-    text-shadow:  0 0 10px black
-  }
+.main-container {
+  position: relative;
+  margin: 20vh auto;
+  max-width: 500px;
+  width: 80%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.221
+  ); /* Background color with transparency */
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.131);
+}
 
-  .thala{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
+h1 {
+  text-align: center;
+  color: #fff;
+}
 
-.share{
+#userForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Input background color with transparency */
+  height: 20px;
+}
+
+button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #3498db; /* Button background color */
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2980b9; /* Button background color on hover */
+}
+
+#resultContainer {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px black;
+}
+
+.thala {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.share {
   display: flex;
   flex-direction: row;
   height: 5rem;
   padding: 0;
-align-items: center;
-  button{
+  align-items: center;
+  button {
     background: none;
     display: flex;
     align-items: center;
     justify-items: center;
   }
 }
-.shareButton{
+.shareButton {
   width: 4rem;
-  padding: 0;  
+  padding: 0;
 }
-#shareIcon{
+#shareIcon {
   height: 40px;
 }
-
+#clipIcon {
+  height: 30px;
+}
 
 /* src/style.css */
 #foot a {
@@ -119,4 +129,50 @@ align-items: center;
 
 #foot a:hover {
   text-decoration: underline; /* Add underline on hover (optional) */
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.clip {
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  padding: 0;
+  align-items: center;
+  justify-items: center;
+  button {
+    background: none;
+    align-items: center;
+    justify-items: self-end;
+    text-align: center;
+  }
+}
+
+.linkCopied{
+  background: rgba(29, 29, 29, 0.6);
+  color: white;
+  border-radius: 10px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+.toast{
+  transition: all 0.3s ease-in-out;
+}
+.hiddenToast{
+  position: absolute;
+  bottom: -100px;
+}
+.showToast{
+  position: absolute;
+  bottom: 60px;
 }
