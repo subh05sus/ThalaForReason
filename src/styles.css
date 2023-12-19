@@ -103,12 +103,20 @@ align-items: center;
   }
 }
 .shareButton{
-  height: 5rem;
-  width: 5rem;
-  padding: 0;
-  margin-right: 0;
-  
+  width: 4rem;
+  padding: 0;  
 }
 #shareIcon{
   height: 40px;
+}
+
+
+/* src/style.css */
+#foot a {
+  text-decoration: none; /* Remove text decoration for all anchor links inside #foot */
+  color: black;
+}
+
+#foot a:hover {
+  text-decoration: underline; /* Add underline on hover (optional) */
 }
