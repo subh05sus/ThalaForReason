@@ -1,6 +1,7 @@
 // src/index.js
 document.addEventListener("DOMContentLoaded", function () {
   const queryString = window.location.search;
+  console.log(window.location.search)
   const urlParams = new URLSearchParams(queryString);
 
   if (urlParams.has("query")) {
@@ -80,7 +81,7 @@ async function shareOnTwitter() {
   const resultContainer = document.getElementById("resultContainer");
   const queryValue = document.getElementById("query").value;
   const encodedQuery = btoa(queryValue);
-  const urlWithQuery = `http://localhost:8080/?query=${encodedQuery}`;
+  const urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
   console.log(urlWithQuery);
 
   try {
@@ -113,7 +114,7 @@ async function shareOnWhatsApp() {
   const resultContainer = document.getElementById("resultContainer");
   const queryValue = document.getElementById("query").value;
   const encodedQuery = btoa(queryValue);
-  const urlWithQuery = `http://localhost:8080/?query=${encodedQuery}`;
+  const urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
   console.log(urlWithQuery);
 
   try {
@@ -177,12 +178,12 @@ function dataURItoBlob(dataURI) {
 function copyToClipboard() {
   const toast = document.getElementById("toast");
   const queryValue = document.getElementById("query").value;
-  let urlWithQuery = `http://localhost:8080/`;
+  let urlWithQuery = `${window.location.origin}/`;
 
 
     const encodedQuery = btoa(queryValue);
     if (queryValue!=="") {
-      urlWithQuery = `http://localhost:8080/?query=${encodedQuery}`;
+      urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
     }
 
 
