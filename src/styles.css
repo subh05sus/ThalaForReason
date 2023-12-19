@@ -111,14 +111,14 @@ button:hover {
   }
 }
 .shareButton {
-  width: 4rem;
+  width: 3rem;
   padding: 0;
 }
 #shareIcon {
-  height: 40px;
+  height: 30px;
 }
 #clipIcon {
-  height: 30px;
+  height: 20px;
 }
 
 /* src/style.css */
