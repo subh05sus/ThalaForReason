@@ -80,21 +80,15 @@ function sleep(ms) {
 async function shareOnTwitter() {
   const resultContainer = document.getElementById("resultContainer");
   const queryValue = document.getElementById("query").value;
+  let urlWithQuery = `${window.location.origin}/`;
+
   const encodedQuery = btoa(queryValue);
-  const urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
-  console.log(urlWithQuery);
+  if (queryValue!=="") {
+    urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
+  }
+
 
   try {
-    const canvas = await html2canvas(resultContainer);
-    console.log(canvas);
-
-    // Convert canvas data to data URI
-    const dataURL = canvas.toDataURL();
-    // console.log(dataURL)
-
-    // Encode data URI for Twitter
-    const encodedData = encodeURIComponent(dataURL);
-    const query = document.getElementById("query").value;
 
     // Set up Twitter sharing link
     const tweetText = encodeURIComponent(
@@ -113,9 +107,15 @@ async function shareOnTwitter() {
 async function shareOnWhatsApp() {
   const resultContainer = document.getElementById("resultContainer");
   const queryValue = document.getElementById("query").value;
-  const encodedQuery = btoa(queryValue);
-  const urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
-  console.log(urlWithQuery);
+  let urlWithQuery = `${window.location.origin}/`;
+
+
+    const encodedQuery = btoa(queryValue);
+    if (queryValue!=="") {
+      urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
+    }
+
+
 
   try {
     const whatsAppText = encodeURIComponent(
