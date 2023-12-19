@@ -73,14 +73,14 @@ button {
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: #3498db; /* Button background color */
+  background: #08054c; /* Button background color */
   color: #fff;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #2980b9; /* Button background color on hover */
+  background: #05032f; /* Button background color on hover */
 }
 
 #resultContainer {
