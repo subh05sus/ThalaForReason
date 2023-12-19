@@ -92,7 +92,7 @@ async function shareOnTwitter() {
 
     // Set up Twitter sharing link
     const tweetText = encodeURIComponent(
-      `Check if you're a Thala!🕵️\nVisit: ${urlWithQuery}`
+      `Check if you're a Thala!🕵️\nVisit: ${urlWithQuery}\n#ThalaForReason`
     );
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
 
