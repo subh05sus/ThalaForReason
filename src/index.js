@@ -25,12 +25,27 @@ async function generateContent() {
   if (query.length === 0) {
     responseContainer.textContent = `Enter a query kiddo`;
 
-    return; // Exit the function early
+    return;
+  }
+  if (query.includes("thala") || query.includes("dhoni")) {
+    result_preset = `Truly Thala For A Reason`;
+    for (let i = 0; i < result_preset.length; i++) {
+      await sleep(30); // Adjust the typing speed (milliseconds)
+      responseContainer.textContent += result_preset[i];
+    }
+
+    audio.play();
+    return;
   }
   if (query.length === 7) {
-    responseContainer.textContent = `${query} has exactly 7 letters! Thala Confirmed`;
+    let result_preset = `${query} has exactly 7 letters! Thala Confirmed`;
+    for (let i = 0; i < result_preset.length; i++) {
+      await sleep(30); // Adjust the typing speed (milliseconds)
+      responseContainer.textContent += result_preset[i];
+    }
+
     audio.play();
-    return; // Exit the function early
+    return;
   }
 
   loadingAnimationContainer.style.height = "100px";
