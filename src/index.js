@@ -28,6 +28,7 @@ async function generateContent() {
     return;
   }
   if (query.includes("thala") || query.includes("dhoni")) {
+    responseContainer.textContent = ""
     result_preset = `Truly Thala For A Reason`;
     for (let i = 0; i < result_preset.length; i++) {
       await sleep(30); // Adjust the typing speed (milliseconds)
@@ -38,6 +39,7 @@ async function generateContent() {
     return;
   }
   if (query.length === 7) {
+    responseContainer.textContent = ""
     let result_preset = `${query} has exactly 7 letters! Thala Confirmed`;
     for (let i = 0; i < result_preset.length; i++) {
       await sleep(30); // Adjust the typing speed (milliseconds)
