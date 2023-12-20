@@ -32,6 +32,7 @@ app.post("/userdata", async (req, res) => {
       2023 = 2+2+3 =7,\
       Gaurav = 1st letter G = 7th letter, \
       Sunset has 6 letters + 1 word = 7,\
+      Lol : 'Lol' has 3 letters and 'Haha' has 4 letters, together they make 7 letters.\
       Development: Development can be broken down into two words 'develop' and 'ment' develop is a 7 letter word = 7,\
       Rohit: The sum of the numerical positions of the letters (R=18, O=15, H=8, I=9, T=20) is 70, and 7 + 0 = 7, \
       Had break up with Girlfriend: You had break up with your gf because your luck was on 7th planet\
