@@ -27,7 +27,7 @@ async function generateContent() {
 
     return;
   }
-  if (query.includes("thala") || query.includes("dhoni")) {
+  if (query.toLowerCase().includes("thala") || query.toLowerCase().includes("dhoni")) {
     result_preset = `Truly Thala For A Reason`;
     responseContainer.textContent = result_preset[0]
     for (let i = 1; i < result_preset.length; i++) {
