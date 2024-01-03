@@ -1,7 +1,7 @@
 // src/index.js
 document.addEventListener("DOMContentLoaded", function () {
   const queryString = window.location.search;
-  console.log(window.location.search)
+  console.log(window.location.search);
   const urlParams = new URLSearchParams(queryString);
 
   if (urlParams.has("query")) {
@@ -17,7 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 // index.js
+const button = document.getElementsByClassName("checkButton");
+
 async function generateContent() {
+  if (button.disabled === true) {
+    return;
+  }
+
+  button.disabled = true;
+  console.log(button);
   const query = document.getElementById("query").value;
   const responseContainer = document.getElementById("resultText");
   const loadingAnimationContainer = document.getElementById("loadingAnimation");
@@ -27,26 +35,35 @@ async function generateContent() {
 
     return;
   }
-  if (query.toLowerCase().includes("thala") || query.toLowerCase().includes("dhoni")) {
+  if (
+    query.toLowerCase().includes("thala") ||
+    query.toLowerCase().includes("dhoni")
+  ) {
     result_preset = `Truly Thala For A Reason`;
-    responseContainer.textContent = result_preset[0]
+    responseContainer.textContent = result_preset[0];
+
     for (let i = 1; i < result_preset.length; i++) {
       await sleep(30); // Adjust the typing speed (milliseconds)
       responseContainer.textContent += result_preset[i];
     }
 
     audio.play();
+    button.disabled = false;
+
     return;
   }
   if (query.length === 7) {
     let result_preset = `${query} has exactly 7 letters! Thala Confirmed`;
-    responseContainer.textContent = result_preset[0]
+    responseContainer.textContent = result_preset[0];
     for (let i = 1; i < result_preset.length; i++) {
+      //button.disabled = true;
       await sleep(30); // Adjust the typing speed (milliseconds)
       responseContainer.textContent += result_preset[i];
     }
 
     audio.play();
+    button.disabled = false;
+
     return;
   }
 
@@ -77,11 +94,13 @@ async function generateContent() {
 
     // Simulate typing animation
     for (let i = 0; i < result.length; i++) {
+      // button.disabled = true;
       await sleep(30); // Adjust the typing speed (milliseconds)
       responseContainer.textContent += result[i];
     }
 
     audio.play();
+    button.disabled = false;
   } catch (error) {
     console.error("Error:", error);
     responseContainer.textContent = "Developer is Too Lazy to resolve bugs";
@@ -100,13 +119,11 @@ async function shareOnTwitter() {
   let urlWithQuery = `${window.location.origin}/`;
 
   const encodedQuery = btoa(queryValue);
-  if (queryValue!=="") {
+  if (queryValue !== "") {
     urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
   }
 
-
   try {
-
     // Set up Twitter sharing link
     const tweetText = encodeURIComponent(
       `Check if you're a Thala!🕵️\nVisit: ${urlWithQuery}\n#ThalaForReason`
@@ -126,13 +143,10 @@ async function shareOnWhatsApp() {
   const queryValue = document.getElementById("query").value;
   let urlWithQuery = `${window.location.origin}/`;
 
-
-    const encodedQuery = btoa(queryValue);
-    if (queryValue!=="") {
-      urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
-    }
-
-
+  const encodedQuery = btoa(queryValue);
+  if (queryValue !== "") {
+    urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
+  }
 
   try {
     const whatsAppText = encodeURIComponent(
@@ -147,7 +161,6 @@ async function shareOnWhatsApp() {
     alert("Error sharing on Twitter");
   }
 }
-
 
 async function shareOnOthers() {
   document.documentElement.style.backgroundColor = "rgba(255,42,102,255)";
@@ -197,24 +210,21 @@ function copyToClipboard() {
   const queryValue = document.getElementById("query").value;
   let urlWithQuery = `${window.location.origin}/`;
 
-
-    const encodedQuery = btoa(queryValue);
-    if (queryValue!=="") {
-      urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
-    }
-
+  const encodedQuery = btoa(queryValue);
+  if (queryValue !== "") {
+    urlWithQuery = `${window.location.origin}/?query=${encodedQuery}`;
+  }
 
   // Use the Clipboard API to copy the text
   navigator.clipboard
     .writeText(urlWithQuery)
     .then(() => {
-      toast.classList.remove("hiddenToast")
-      toast.classList.add("showToast")
+      toast.classList.remove("hiddenToast");
+      toast.classList.add("showToast");
       setTimeout(() => {
         toast.classList.remove("showToast");
         toast.classList.add("hiddenToast");
       }, 2000);
-    
     })
     .catch((error) => {
       console.error("Error copying text to clipboard:", error);
