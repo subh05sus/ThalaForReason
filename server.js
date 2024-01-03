@@ -20,6 +20,9 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 app.post("/userdata", async (req, res) => {
   try {
     const question = req.body.query;
+    if (!question || question.length === 0) {
+      return res.status(400).send("query is required provide a valid query");
+    }
 
     async function main(ques) {
       const model = genAI.getGenerativeModel({
