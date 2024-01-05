@@ -25,16 +25,18 @@ async function generateContent() {
   }
 
   button.disabled = true;
-  console.log(button);
   const query = document.getElementById("query").value;
   const responseContainer = document.getElementById("resultText");
   const loadingAnimationContainer = document.getElementById("loadingAnimation");
 
+  //If NO input Provoided
   if (query.length === 0) {
     responseContainer.textContent = `Enter a query kiddo`;
 
     return;
   }
+
+  //if input contain thala/dhoni
   if (
     query.toLowerCase().includes("thala") ||
     query.toLowerCase().includes("dhoni")
@@ -52,8 +54,18 @@ async function generateContent() {
 
     return;
   }
+
+  let temp = "";
+  //to check give input is number or digit
+  if (!isNaN(query)) {
+    temp = "Digits";
+  } else {
+    temp = "letters";
+  }
+
+  //input has 7letters/digits in it
   if (query.length === 7) {
-    let result_preset = `${query} has exactly 7 letters! Thala Confirmed`;
+    let result_preset = `${query} has exactly 7 ${temp}! Thala Confirmed`;
     responseContainer.textContent = result_preset[0];
     for (let i = 1; i < result_preset.length; i++) {
       //button.disabled = true;
@@ -66,6 +78,121 @@ async function generateContent() {
 
     return;
   }
+
+  //input has letters/digits multiple of 7
+  if (query.length % 7 == 0) {
+    let result_preset = `${query} has exactly Multiple of 7 ${temp}! Thala Confirmed`;
+    responseContainer.textContent = result_preset[0];
+    for (let i = 1; i < result_preset.length; i++) {
+      //button.disabled = true;
+      await sleep(30); // Adjust the typing speed (milliseconds)
+      responseContainer.textContent += result_preset[i];
+    }
+
+    audio.play();
+    button.disabled = false;
+    return;
+  }
+
+  // if input is number and its sum is multiple of 7
+  if (query >= 10 && temp === "Digits") {
+    var steps = [];
+    var temp1 = query;
+    //this while loop is used to find the sum of digits of number
+    while (temp1 >= 10) {
+      var digits = temp1.toString().split("").map(Number);
+      var sum = digits.reduce((a, b) => a + b, 0);
+      steps.push(digits.join(" + ") + " = " + sum);
+      temp1 = sum;
+      // at any moment of sum is multiple of 7 , then it stop 
+      if (sum % 7 == 0) {
+        break;
+      }
+    }
+    steps.push(
+      `${query} has sum exactly Multiple of 7 ${temp}! Thala Confirmed`
+    );
+    // if sum is multiple of 7
+    if (sum % 7 == 0) {
+      let tempv =
+        "<p>Steps:</p>\n<ul><li>" + steps.join("</li>\n<li>") + "</li></ul>";
+      // here we create new element so that in this element we can store the html and later on we can retreive the text from it  
+      var tempElement = document.createElement("div");
+      tempElement.innerHTML = tempv;
+      let result_preset = tempElement.innerText;
+      // we use array bcz , the text giving output in one line. Now it will give proper output
+      let lines = result_preset.split('\n'); // Split the text into an array of lines
+      responseContainer.innerHTML = lines[0];
+      
+      for (let i = 1; i < lines.length; i++) {
+          responseContainer.innerHTML += '<br>'; // Add a line break for each new line
+          let line = lines[i];
+      
+          for (let j = 0; j < line.length; j++) {
+              // button.disabled = true;
+              await sleep(30); // Adjust the typing speed (milliseconds)
+              responseContainer.innerHTML += line[j];
+          }
+      }
+
+      audio.play();
+      button.disabled = false;
+      return;
+    }
+  }  
+
+
+  // if input is text and its sum is multiple of 7
+  if (query.length >= 10 && temp === "letters") {
+    console.log(query);
+    var letterCount = query.replace(/[^a-zA-Z]/g, "").length;
+    console.log(letterCount);
+    var steps = [];
+    var temp1 = letterCount;
+    //this while loop is used to find the sum of digits of number
+    while (temp1 >= 10) {
+      var digits = temp1.toString().split("").map(Number);
+      var sum = digits.reduce((a, b) => a + b, 0);
+      steps.push(digits.join(" + ") + " = " + sum);
+      temp1 = sum;
+      // at any moment of sum is multiple of 7 , then it stop 
+      if (sum % 7 == 0) {
+        break;
+      }
+    }
+    console.log(sum);
+    steps.push(
+      `${query} has sum of letters exactly Multiple of 7 ${temp}! Thala Confirmed`
+    );
+    // if sum is multiple of 7
+    if (sum % 7 == 0) {
+      let tempv =
+        "<p>Steps:</p>\n"+"Lettercount = "+letterCount+"\n"+"<ul><li>" + steps.join("</li>\n<li>") + "</li></ul>";
+      // here we create new element so that in this element we can store the html and later on we can retreive the text from it  
+      console.log(tempv)
+      var tempElement = document.createElement("div");
+      tempElement.innerHTML = tempv;
+      let result_preset = tempElement.innerText;
+      // we use array bcz , the text giving output in one line. Now it will give proper output
+      let lines = result_preset.split('\n'); // Split the text into an array of lines
+      responseContainer.innerHTML = lines[0];
+      
+      for (let i = 1; i < lines.length; i++) {
+          responseContainer.innerHTML += '<br>'; // Add a line break for each new line
+          let line = lines[i];
+      
+          for (let j = 0; j < line.length; j++) {
+              // button.disabled = true;
+              await sleep(30); // Adjust the typing speed (milliseconds)
+              responseContainer.innerHTML += line[j];
+          }
+      }
+
+      audio.play();
+      button.disabled = false;
+      return;
+    }
+  }  
 
   loadingAnimationContainer.style.height = "100px";
   // Display loading animation
@@ -232,17 +359,17 @@ function copyToClipboard() {
 }
 
 // Eye animation
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('body').addEventListener('mousemove', eyeball);
-  
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector("body").addEventListener("mousemove", eyeball);
+
   function eyeball() {
-    var eye = document.querySelectorAll('.eye');
-    eye.forEach(function(eye) {
-      let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
-      let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+    var eye = document.querySelectorAll(".eye");
+    eye.forEach(function (eye) {
+      let x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
+      let y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
       let radian = Math.atan2(event.pageX - x, event.pageY - y);
-      let rot = (radian * (180 / Math.PI) * -1) + 270;
+      let rot = radian * (180 / Math.PI) * -1 + 270;
       eye.style.transform = "rotate(" + rot + "deg)";
-    })
+    });
   }
 });
