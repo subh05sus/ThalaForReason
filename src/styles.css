@@ -90,6 +90,10 @@ button:hover {
   text-shadow: 0 0 10px black;
 }
 
+a{
+  text-decoration: none;
+}
+
 .thala {
   display: flex;
   flex-direction: column;
