@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // index.js
 const button = document.getElementsByClassName("checkButton");
-
+// function to stop music
+function Stopmusic(){
+  audio.pause();
+  audio.currentTime = 0; // Set playback position to the beginning
+}
 async function generateContent() {
   if (button.disabled === true) {
     return;
