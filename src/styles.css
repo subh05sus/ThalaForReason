@@ -121,6 +121,10 @@ button:hover {
   height: 20px;
 }
 
+#githubIcon {
+  height: 20px;
+}
+
 /* src/style.css */
 #foot a {
   text-decoration: none; /* Remove text decoration for all anchor links inside #foot */
@@ -151,7 +155,7 @@ button:hover {
   }
 }
 
-.linkCopied{
+.linkCopied {
   background: rgba(29, 29, 29, 0.6);
   color: white;
   border-radius: 10px;
@@ -165,14 +169,14 @@ button:hover {
   justify-items: center;
   align-items: center;
 }
-.toast{
+.toast {
   transition: all 0.3s ease-in-out;
 }
-.hiddenToast{
+.hiddenToast {
   position: absolute;
   bottom: -100px;
 }
-.showToast{
+.showToast {
   position: absolute;
   bottom: 60px;
 }
@@ -195,7 +199,7 @@ button:hover {
 }
 
 .eyes .eye::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 12px;
@@ -203,5 +207,5 @@ button:hover {
   height: 20px;
   background: #333;
   border-radius: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
