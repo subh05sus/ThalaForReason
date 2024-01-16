@@ -178,7 +178,9 @@ button:hover {
   position: absolute;
   bottom: 60px;
 }
-
+.hidden {
+  display: none;
+}
 .eyes {
   top: -40px;
   display: flex;
