@@ -18,7 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // index.js
 const button = document.getElementsByClassName("checkButton");
+// handle form submition
 
+document.getElementById("userForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  this.generateContent();
+});
 async function generateContent() {
   if (button.disabled === true) {
     return;
@@ -104,7 +109,7 @@ async function generateContent() {
       var sum = digits.reduce((a, b) => a + b, 0);
       steps.push(digits.join(" + ") + " = " + sum);
       temp1 = sum;
-      // at any moment of sum is multiple of 7 , then it stop 
+      // at any moment of sum is multiple of 7 , then it stop
       if (sum % 7 == 0) {
         break;
       }
@@ -116,31 +121,30 @@ async function generateContent() {
     if (sum % 7 == 0) {
       let tempv =
         "<p>Steps:</p>\n<ul><li>" + steps.join("</li>\n<li>") + "</li></ul>";
-      // here we create new element so that in this element we can store the html and later on we can retreive the text from it  
+      // here we create new element so that in this element we can store the html and later on we can retreive the text from it
       var tempElement = document.createElement("div");
       tempElement.innerHTML = tempv;
       let result_preset = tempElement.innerText;
       // we use array bcz , the text giving output in one line. Now it will give proper output
-      let lines = result_preset.split('\n'); // Split the text into an array of lines
+      let lines = result_preset.split("\n"); // Split the text into an array of lines
       responseContainer.innerHTML = lines[0];
-      
+
       for (let i = 1; i < lines.length; i++) {
-          responseContainer.innerHTML += '<br>'; // Add a line break for each new line
-          let line = lines[i];
-      
-          for (let j = 0; j < line.length; j++) {
-              // button.disabled = true;
-              await sleep(30); // Adjust the typing speed (milliseconds)
-              responseContainer.innerHTML += line[j];
-          }
+        responseContainer.innerHTML += "<br>"; // Add a line break for each new line
+        let line = lines[i];
+
+        for (let j = 0; j < line.length; j++) {
+          // button.disabled = true;
+          await sleep(30); // Adjust the typing speed (milliseconds)
+          responseContainer.innerHTML += line[j];
+        }
       }
 
       audio.play();
       button.disabled = false;
       return;
     }
-  }  
-
+  }
 
   // if input is text and its sum is multiple of 7
   if (query.length >= 10 && temp === "letters") {
@@ -155,7 +159,7 @@ async function generateContent() {
       var sum = digits.reduce((a, b) => a + b, 0);
       steps.push(digits.join(" + ") + " = " + sum);
       temp1 = sum;
-      // at any moment of sum is multiple of 7 , then it stop 
+      // at any moment of sum is multiple of 7 , then it stop
       if (sum % 7 == 0) {
         break;
       }
@@ -167,32 +171,38 @@ async function generateContent() {
     // if sum is multiple of 7
     if (sum % 7 == 0) {
       let tempv =
-        "<p>Steps:</p>\n"+"Lettercount = "+letterCount+"\n"+"<ul><li>" + steps.join("</li>\n<li>") + "</li></ul>";
-      // here we create new element so that in this element we can store the html and later on we can retreive the text from it  
-      console.log(tempv)
+        "<p>Steps:</p>\n" +
+        "Lettercount = " +
+        letterCount +
+        "\n" +
+        "<ul><li>" +
+        steps.join("</li>\n<li>") +
+        "</li></ul>";
+      // here we create new element so that in this element we can store the html and later on we can retreive the text from it
+      console.log(tempv);
       var tempElement = document.createElement("div");
       tempElement.innerHTML = tempv;
       let result_preset = tempElement.innerText;
       // we use array bcz , the text giving output in one line. Now it will give proper output
-      let lines = result_preset.split('\n'); // Split the text into an array of lines
+      let lines = result_preset.split("\n"); // Split the text into an array of lines
       responseContainer.innerHTML = lines[0];
-      
+
       for (let i = 1; i < lines.length; i++) {
-          responseContainer.innerHTML += '<br>'; // Add a line break for each new line
-          let line = lines[i];
-      
-          for (let j = 0; j < line.length; j++) {
-              // button.disabled = true;
-              await sleep(30); // Adjust the typing speed (milliseconds)
-              responseContainer.innerHTML += line[j];
-          }
+        responseContainer.innerHTML += "<br>"; // Add a line break for each new line
+        let line = lines[i];
+
+        for (let j = 0; j < line.length; j++) {
+          // button.disabled = true;
+          await sleep(30); // Adjust the typing speed (milliseconds)
+          responseContainer.innerHTML += line[j];
+        }
       }
 
       audio.play();
       button.disabled = false;
       return;
     }
-  }  
+  }
 
   loadingAnimationContainer.style.height = "100px";
   // Display loading animation
