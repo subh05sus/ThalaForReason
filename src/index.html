@@ -1,65 +1,87 @@
 <!-- src/index.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thala For A Reason</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.png" type="image/x-icon">
-
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/3bc8e24f41.js"></script>
 
 </head>
+
 <body>
   <div class="toastify"></div>
   <div class="main" id="main">
 
     <div class="main-container" id="main-container">
       <h1>Check If you are a Thala ?
-          <div class="eyes">
-            <div class="eye"></div>
-            <div class="eye"></div>
-          </div>
+        <div class="eyes">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
 
       </h1>
       <form id="userForm">
         <input type="text" id="query" name="query" placeholder="Enter... for example: 'Subinoy'" required>
-        <button type="button" onclick="generateContent()" class="checkButton" >Check</button>
+        <button type="button" onclick="generateContent()" class="checkButton">Check</button>
       </form>
       <div id="loadingAnimation"></div>
 
       <div id="resultContainer">
         <p id="resultText"></p>
       </div>
-    <div class="thala">
-      <p class="tfr">#ThalaForReason</p>
-    </div>
-    <div class="lower">
-      <div class="share">
-        <p style="margin-right: 10px; font-size: 1rem;">Share On: </p>
-        <button type="button" class="shareButton" onclick="shareOnWhatsApp()">
-          <img src="whatsapp.svg" alt="WhatsApp Icon" id="shareIcon">
-        </button>
-        <button type="button" class="shareButton" onclick="shareOnTwitter()">
-          <img src="x-social-media-round-icon.svg" alt="WhatsApp Icon" id="shareIcon">
-        </button>
-        <button type="button" class="shareButton" onclick="shareOnOthers()">
-          <img src="share-svgrepo-com.svg" alt="WhatsApp Icon" id="shareIcon">
-        </button>
+      <div class="thala">
+        <p class="tfr">#ThalaForReason</p>
       </div>
-      <div class="clip">
-        <button type="button" class="shareButton" onclick="copyToClipboard()">
-          <img src="clipboard.svg" alt="Clipboard Icon" id="clipIcon" height="1rem">
-        </button>
+      <div class="lower">
+        <div class="share">
+          <p style="margin-right: 10px; font-size: 1rem;">Share On: </p>
+          <button type="button" class="shareButton" onclick="shareOnWhatsApp()">
+            <img src="whatsapp.svg" alt="WhatsApp Icon" id="shareIcon">
+          </button>
+          <button type="button" class="shareButton" onclick="shareOnTwitter()">
+            <img src="x-social-media-round-icon.svg" alt="WhatsApp Icon" id="shareIcon">
+          </button>
+          <button type="button" class="shareButton" onclick="shareOnOthers()">
+            <img src="share-svgrepo-com.svg" alt="WhatsApp Icon" id="shareIcon">
+          </button>
+        </div>
+        <div class="clip">
+          <button type="button" class="shareButton" onclick="copyToClipboard()">
+            <img src="clipboard.svg" alt="Clipboard Icon" id="clipIcon" height="1rem">
+          </button>
+        </div>
       </div>
     </div>
+    <audio id="audio" src="boleJoKoyal.mp3"></audio>
   </div>
-  <audio id="audio" src="boleJoKoyal.mp3"></audio>
-</div>
 
-<div id="foot">
+  <footer>
+    <div class="img-f wid">
+      <img src="./favicon.png" alt="" srcset="">
+    </div>
+    <div id="foot-copy wid ">
+      <p>Copyright &copy; 2024 by <a href="https://github.com/subh05sus" target="_blank" id="foot-text">Subhadip
+          Saha</a>. All rights reserved.</p>
+    </div>
+
+    <div class="follow wid">
+      <h4>Follow Me</h4>
+      <div class="icon">
+        <a href="https://twitter.com/SubhadipSuDi" class="fab fa-twitter" target="_blank"></a>|
+        <a href="https://instagram.com/subh05sus_" class="fab fa-instagram" target="_blank"></a>|
+        <a href="https://github.com/subh05sus" class="fab fa-github" target="_blank"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <div id="foot">
   <center>
 
     &copy; 2023 <a href="https://linktr.ee/subhadipsaha"><b id="subh">Subhadip Saha</b></a>. All rights reserved.
@@ -69,20 +91,21 @@
     </div>
     <br>
   </center>
-</div>
-<div class="toast hiddenToast" id="toast">
-  <div class="linkCopied">
-    <p>
-      Link Copied To Clipboard
-    </p>
+</div> -->
+  <div class="toast hiddenToast" id="toast">
+    <div class="linkCopied">
+      <p>
+        Link Copied To Clipboard
+      </p>
+    </div>
   </div>
-</div>
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script src="index.js"></script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="index.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
 
 </body>
+
 </html>
