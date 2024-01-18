@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 8080
 
 # Define environment variable (replace with actual key or use Docker's -e flag)
-ENV GOOGLE_API_KEY="AIzaSyD-lRmBi5TVlpyJ38-Zzc-9s3-tp-1fKwY"
+ENV GOOGLE_API_KEY="Your_Key"
 
 # Run the application
 CMD ["npm", "start"]
