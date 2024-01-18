@@ -42,11 +42,7 @@
 
 ## Creating a Google API Key
 
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new project or select an existing one.
-3. Navigate to "APIs & Services" > "Credentials".
-4. Click "Create Credentials" and select "API key".
-5. Copy the generated API key for later use.
+ Go to the [Google API key](https://makersuite.google.com/) here and generate your keys.
 
 ## Running the Application with Docker
 
