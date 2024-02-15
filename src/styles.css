@@ -122,6 +122,43 @@ button:hover {
 #clipIcon {
   height: 20px;
 }
+/*footer*/
+.footer{
+  width: 100%;
+  height:6%;
+  background-color: #191920c9;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footerCopyright{
+  color: #faebd7;
+  font-size: 10px;
+  margin: auto 5%;
+}
+.footerCopyright a{
+  text-decoration: none;
+color: #faebd7;
+}
+.footerIcon{
+  color: #342108;
+  height: 23px;
+  width: 23px;
+  transition: transform .2s;
+  padding: 6px 15px;
+
+}
+.footerContainer{
+display: flex;
+justify-content: end;
+margin: auto 5%;
+}
+.footerIcon:hover{
+  transform: scale(0.8);
+}
+/*footer*/
+
 
 /* src/style.css */
 #foot a {

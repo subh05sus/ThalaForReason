@@ -265,6 +265,10 @@ async function shareOnTwitter() {
   }
 }
 
+function workOnGithub(){
+  const githubRepoUrl = "https://github.com/subh05sus/ThalaForReason";
+  window.open(githubRepoUrl, "_blank");
+}
 async function shareOnWhatsApp() {
   const resultContainer = document.getElementById("resultContainer");
   const queryValue = document.getElementById("query").value;
