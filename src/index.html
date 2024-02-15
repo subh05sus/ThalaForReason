@@ -50,6 +50,9 @@
         </button>
       </div>
       <div class="clip">
+        <button type="button" class="shareButton" onclick="workOnGithub()">
+          <img src="./assets/github.svg" alt="Github Icon" id="github">
+        </button>
         <button type="button" class="shareButton" onclick="copyToClipboard()">
           <img src="clipboard.svg" alt="Clipboard Icon" id="clipIcon" height="1rem">
         </button>
@@ -57,9 +60,18 @@
     </div>
   </div>
   <audio id="audio" src="boleJoKoyal.mp3"></audio>
+  
 </div>
 
-<div id="foot">
+<footer class="footer">
+<div class="footerCopyright"><p>Copyright &copy; 2024 <a href="https://linktr.ee/subhadipsaha"><b id="subh">Subhadip Saha</b></a>. All rights reserved.</p></div>
+<div class="footerContainer">
+<a href="#"> <img class="footerIcon" src="./assets/linkedin.svg" alt=""> </a>
+<a href="#"> <img class="footerIcon" src="./assets/instagram.svg" alt=""> </a>
+<a href="#"> <img class="footerIcon" src="./assets/email.svg" alt=""> </a>
+</div>
+</footer>
+<!-- <div id="foot">
   <center>
 
     &copy; 2023 <a href="https://linktr.ee/subhadipsaha"><b id="subh">Subhadip Saha</b></a>. All rights reserved.
@@ -69,7 +81,7 @@
     </div>
     <br>
   </center>
-</div>
+</div> -->
 <div class="toast hiddenToast" id="toast">
   <div class="linkCopied">
     <p>
