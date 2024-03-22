@@ -235,6 +235,12 @@ async function generateContent() {
   }
 }
 
+function handleNewsearch(event) {
+  event.preventDefault();
+  document.getElementById("query").value = '';
+  location.reload();
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
