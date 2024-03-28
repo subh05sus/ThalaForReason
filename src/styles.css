@@ -5,11 +5,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("bg.svg") center/750% no-repeat; /* Replace 'your-background-image-url.jpg' with the actual URL */
+  background: url("bg.svg") center/750% no-repeat;
+  /* Replace 'your-background-image-url.jpg' with the actual URL */
   font-family: "Figtree", sans-serif;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Prevent scrollbars caused by background image */
+  overflow: hidden;
+  /* Prevent scrollbars caused by background image */
   display: flex;
   align-items: center;
   justify-items: center;
@@ -32,15 +34,15 @@ body {
   margin: 20vh auto;
   max-width: 500px;
   width: 80%;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.221
-  ); /* Background color with transparency */
+  background: rgba(255,
+      255,
+      255,
+      0.221);
+  /* Background color with transparency */
   border-radius: 12px;
   padding: 20px;
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  /* Glassmorphism effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.131);
 }
 
@@ -61,12 +63,12 @@ input {
   padding: 8px;
   border: none;
   border-radius: 10px;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.7
-  ); /* Input background color with transparency */
+  background: rgba(255,
+      255,
+      255,
+      255,
+      0.7);
+  /* Input background color with transparency */
   height: 20px;
 }
 
@@ -75,14 +77,16 @@ button {
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: #08054c; /* Button background color */
+  background: #08054c;
+  /* Button background color */
   color: #fff;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #05032f; /* Button background color on hover */
+  background: #05032f;
+  /* Button background color on hover */
 }
 
 #resultContainer {
@@ -105,6 +109,7 @@ button:hover {
   height: 5rem;
   padding: 0;
   align-items: center;
+
   button {
     background: none;
     display: flex;
@@ -112,25 +117,30 @@ button:hover {
     justify-items: center;
   }
 }
+
 .shareButton {
   width: 3rem;
   padding: 0;
 }
+
 #shareIcon {
   height: 30px;
 }
+
 #clipIcon {
   height: 20px;
 }
 
 /* src/style.css */
 #foot a {
-  text-decoration: none; /* Remove text decoration for all anchor links inside #foot */
+  text-decoration: none;
+  /* Remove text decoration for all anchor links inside #foot */
   color: black;
 }
 
 #foot a:hover {
-  text-decoration: underline; /* Add underline on hover (optional) */
+  text-decoration: underline;
+  /* Add underline on hover (optional) */
 }
 
 .lower {
@@ -138,6 +148,7 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
 }
+
 .clip {
   display: flex;
   flex-direction: row;
@@ -145,6 +156,7 @@ button:hover {
   padding: 0;
   align-items: center;
   justify-items: center;
+
   button {
     background: none;
     align-items: center;
@@ -153,7 +165,7 @@ button:hover {
   }
 }
 
-.linkCopied{
+.linkCopied {
   background: rgba(29, 29, 29, 0.6);
   color: white;
   border-radius: 10px;
@@ -167,14 +179,17 @@ button:hover {
   justify-items: center;
   align-items: center;
 }
-.toast{
+
+.toast {
   transition: all 0.3s ease-in-out;
 }
-.hiddenToast{
+
+.hiddenToast {
   position: absolute;
   bottom: -100px;
 }
-.showToast{
+
+.showToast {
   position: absolute;
   bottom: 60px;
 }
@@ -205,5 +220,157 @@ button:hover {
   height: 20px;
   background: #333;
   border-radius: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+}
+
+.form-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.checkButton {
+  width: 40%;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.newSearch {
+  width: 40%;
+}
+
+.animated-button {
+  width: 40%;
+  position: relative;
+  display: flex;
+  flex-shrink: none;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 35px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #08054c;
+  box-shadow: 0 0 0 2px #08054c;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: #ffffff;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #08054c;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #08054c;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px #fff;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+@media screen and (max-width: 527px) {
+  .form-buttons {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .checkButton {
+    width: 52%;
+  }
+
+  .newSearch {
+    width: 52%;
+  }
+
+  .animated-button {
+    width: 52%;
+    position: relative;
+    display: flex;
+    flex-shrink: none;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 25px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 14px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #08054c;
+    box-shadow: 0 0 0 2px #08054c;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 }
